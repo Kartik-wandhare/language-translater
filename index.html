@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Language translater</title>
-</head>
-<style>
-    .box{
-        height: 50px;
-        width: 50%;
-        padding: 5px;
-        margin: 30px;
-        font-size: 30px;
+  </head>
+  <style>
+    .box {
+      height: 50px;
+      width: 50%;
+      padding: 5px;
+      margin: 30px;
+      font-size: 30px;
     }
-    .btn{
-        font-size: 40px;
-        border-radius: 25px;
-        width: 15%;
-        padding: 5px;
-        margin: 0px 20px;
+    .btn {
+      font-size: 40px;
+      border-radius: 25px;
+      width: 15%;
+      padding: 5px;
+      margin: 0px 20px;
     }
-</style>
-<body>
-   <h1>English to Marathi translater</h1> 
-   <input type="text" id="word" placeholder="Enter the word to translate"  class="box">
-   <button id="translate" class="btn">Translate</button>
-</body>
+  </style>
+  <body>
+    <h1>English to Marathi translater</h1>
+    <input
+      type="text"
+      id="word"
+      placeholder="Enter the word to translate"
+      class="box" />
+      <button onclick="convert()" class="btn">translate</button>
+      <h2 id="check"></h2>
+    <script>
+          const englishtomarathi= {
+          hello: "नमस्कार",
+      age: "वय",
+      bike: "दुचाकी",
+      hand: "हात ",
+      luck: "नशीब",
+      good: "चांगले",
+      line: "ठीक",
+      "How are you?": "तुम्ही कसे आहात?"
+          }
+          function convert(){
+            const wordElement=document.getElementById("word");
+            const checkElement=document.getElementById("check");
+            const word=wordElement.value.toLowerCase();
+            const check=englishtomarathi[word];
+            checkElement.innerText=`${word} in marathi is: ${check || "Translation not found"}`;
+          }
+    </script>
+   
+  </body>
 </html>
